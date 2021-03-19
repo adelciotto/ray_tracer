@@ -1,0 +1,11 @@
+﻿- Parallelise the raytracer.
+	- Divide the image into a grid of tiles.
+	- Create a set of worker threads which read from a work queue.
+- If performance gain is not enough, then do further optimisation work by benchmarking app.
+- Move onto RayTracing the next weekend.
+
+- Performance
+	- Single thread, 100 samples, 200px width: ~32secs
+	- Parallel.For, 100 samples, 200px width, Random with lock: ~9-10secs
+	- Parallel.For, 100 samples, 200px width, ThreadLocalRandom: ~7secs
+	- Parllel.For with ThreadLocalRandom ~78% faster than Single Thread
