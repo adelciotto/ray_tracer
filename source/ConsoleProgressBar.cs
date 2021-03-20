@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
@@ -101,6 +100,5 @@ namespace RayTracer
         {
             _timer.Change(animationInterval, TimeSpan.FromMilliseconds(-1));
         }
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
+﻿using System.Numerics;
 
 namespace RayTracer
 {
@@ -61,7 +58,7 @@ namespace RayTracer
 
             var unitDirection = Vector3.Normalize(ray.Direction);
             float t = 0.5f * (unitDirection.Y + 1.0f);
-            return Vector3.Lerp(Vector3.One, new Vector3(0.5f, 0.7f, 1.0f), t);
+            return Vector3.Lerp(Vector3.One, new Vector3(0.05f, 0.13f, 1.0f), t);
         }
     }
 }

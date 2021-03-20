@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RayTracer
+﻿namespace RayTracer
 {
     public struct Config
     {
@@ -26,7 +22,7 @@ namespace RayTracer
         public static Config NewDefaultForDev()
         {
             return new Config(_defaultImageWidth, _defaultImageAspectRatio, 
-                10, _defaultMaxDepth);
+                100, _defaultMaxDepth);
         }
 
         public Config(int imageW, float aspectRatio, int spp, int maxDepth)

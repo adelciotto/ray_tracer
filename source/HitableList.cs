@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RayTracer
 {
@@ -21,9 +19,12 @@ namespace RayTracer
             }
         }
 
-        public void Add(IHitable hitable)
+        public void Add(params IHitable[] hitables)
         {
-            _hitables.Add(hitable);
+            foreach (var hitable in hitables)
+            {
+                _hitables.Add(hitable);
+            }
         }
 
         public void Clear()
