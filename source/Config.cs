@@ -25,6 +25,12 @@
                 100, _defaultMaxDepth);
         }
 
+        public static Config New1080p()
+        {
+            return new Config(1920, _defaultImageAspectRatio, _defaultSamplesPerPixel,
+                _defaultMaxDepth);
+        }
+
         public Config(int imageW, float aspectRatio, int spp, int maxDepth)
         {
             ImageWidth = imageW;
