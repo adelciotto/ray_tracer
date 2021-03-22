@@ -12,11 +12,11 @@ namespace RayTracer
     {
         static void Main(string[] args)
         {
-            var config = Config.NewDefault();
+            var config = Config.NewDefaultForDev();
             var stopWatch = new Stopwatch();
             var framebuffer = new Image(config.ImageWidth, config.ImageHeight);
 
-            var scene = Scenes.RandomSpheres(config);
+            var scene = Scenes.SphereRing(config);
             var rayTracer = new RayTracer(scene, config.SamplesPerPixel, config.MaxDepth);
 
             Console.WriteLine("Rendering {0} with config: {1}", scene.Name, config); 

@@ -97,8 +97,10 @@ namespace RayTracer
                 Vector3.UnitY, 
                 30.0f, 
                 config.ImageAspectRatio,
-                0.1f, 
-                10.0f
+                0.0f, 
+                10.0f,
+                0.0f,
+                1.0f
             );
             var scene = new Scene("sphere_ring", camera);
             var objects = scene.HitableList;
@@ -114,6 +116,8 @@ namespace RayTracer
             // Ring of spheres.
             int numRingSpheres = 10;
             float ringSphereRad = 0.5f;
+            float endPosOffset = 0.3f;
+            float yPos = centerSphereRad * 0.5f;
             float theta = (MathF.PI*2.0f) / numRingSpheres;
             for (int i = 0; i < numRingSpheres; i++)
             {
@@ -141,7 +145,11 @@ namespace RayTracer
                     var albedo = MathExt.RandomVector3() * MathExt.RandomVector3();
                     mat = new Lambertian(albedo);
                 }
-                objects.Add(new Sphere(new Vector3(xPrime, ringSphereRad, zPrime), ringSphereRad, mat));
+
+                var startPos = new Vector3(xPrime, yPos + 1.0f, zPrime);
+                var endPos = new Vector3(xPrime + endPosOffset, yPos + 1.0f,
+                    zPrime + endPosOffset);
+                objects.Add(new MovingSphere(startPos, endPos, 0.0f, 1.0f, ringSphereRad, mat));
             }
 
             // Background spheres.
