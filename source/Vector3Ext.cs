@@ -5,7 +5,6 @@ namespace RayTracer
 {
     static class Vector3Ext
     {
-
         public static bool NearZero(Vector3 v)
         {
             const float s = 1e-8f;

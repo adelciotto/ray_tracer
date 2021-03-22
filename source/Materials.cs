@@ -23,7 +23,7 @@ namespace RayTracer
             if (Vector3Ext.NearZero(scatterDir))
                 scatterDir = hitRecord.Normal;
 
-            scattered = new Ray(hitRecord.Point, scatterDir);
+            scattered = new Ray(hitRecord.Point, scatterDir, ray.Time);
             attentuation = Albedo;
             return true;
         }
@@ -43,7 +43,7 @@ namespace RayTracer
         public bool Scatter(Ray ray, HitRecord hitRecord, ref Vector3 attentuation, ref Ray scattered)
         {
             var reflected = Vector3.Reflect(Vector3.Normalize(ray.Direction), hitRecord.Normal);
-            scattered = new Ray(hitRecord.Point, reflected + MathExt.RandomInUnitSphere()*Fuzz);
+            scattered = new Ray(hitRecord.Point, reflected + MathExt.RandomInUnitSphere()*Fuzz, ray.Time);
             attentuation = Albedo;
             return Vector3.Dot(scattered.Direction, hitRecord.Normal) > 0.0f;
         }
@@ -74,7 +74,7 @@ namespace RayTracer
             else
                 direction = Vector3Ext.Refract(unitDir, hitRecord.Normal, refractionRatio);
 
-            scattered = new Ray(hitRecord.Point, direction);
+            scattered = new Ray(hitRecord.Point, direction, ray.Time);
             return true;
         }
 

@@ -29,7 +29,9 @@ namespace RayTracer
                 20.0f, 
                 config.ImageAspectRatio,
                 0.1f, 
-                10.0f
+                10.0f,
+                0.0f,
+                1.0f
             );
             var scene = new Scene("random_spheres", camera);
             var objects = scene.HitableList;
@@ -54,7 +56,8 @@ namespace RayTracer
                             // Diffuse
                             var albedo = MathExt.RandomVector3() * MathExt.RandomVector3();
                             material = new Lambertian(albedo);
-                            objects.Add(new Sphere(center, 0.2f, material));
+                            var center2 = center + new Vector3(0, MathExt.RandomFloat(0.0f, 0.5f), 0.0f);
+                            objects.Add(new MovingSphere(center, center2, 0.0f, 1.0f, 0.2f, material));
                         }
                         else if (chooseMat < 0.95f)
                         {

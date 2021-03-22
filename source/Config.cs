@@ -1,6 +1,6 @@
 ﻿namespace RayTracer
 {
-    public struct Config
+    struct Config
     {
         private const int _defaultImageWidth = 640;
         private const float _defaultImageAspectRatio = 16.0f / 9.0f;
