@@ -16,7 +16,7 @@ namespace RayTracer
             var stopWatch = new Stopwatch();
             var framebuffer = new Image(config.ImageWidth, config.ImageHeight);
 
-            var scene = Scenes.SphereRing(config);
+            var scene = Scenes.RandomSpheres(config);
             var rayTracer = new RayTracer(scene, config.SamplesPerPixel, config.MaxDepth);
 
             Console.WriteLine("Rendering {0} with config: {1}", scene.Name, config); 
